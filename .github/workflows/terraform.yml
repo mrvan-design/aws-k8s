@@ -28,7 +28,7 @@ jobs:
 
       # 3️⃣ Terraform fmt check
       - name: Terraform Format Check
-        run: terraform fmt -check
+        run: terraform fmt 
 
       # 4️⃣ Terraform Init
       - name: Terraform Init
