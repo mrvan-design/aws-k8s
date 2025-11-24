@@ -16,10 +16,10 @@ jobs:
         shell: bash
     steps:
       # 1️⃣ Checkout repo
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v3
 
-      # 2️⃣ Setup Terraform CLI & Terraform Cloud token
+      # 2️⃣ Setup Terraform CLI + Terraform Cloud token
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
         with:
@@ -28,13 +28,13 @@ jobs:
 
       # 3️⃣ Terraform fmt check
       - name: Terraform Format Check
-        run: terraform fmt 
+        run: terraform fmt
 
       # 4️⃣ Terraform Init
       - name: Terraform Init
         run: terraform init
 
-      # 5️⃣ Terraform Plan
+      # 5️⃣ Terraform Plan (dùng AWS credentials)
       - name: Terraform Plan
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
